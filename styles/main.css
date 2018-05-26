@@ -1,3 +1,8 @@
 body {
-  background-color: yellowgreen;
+  background: url(https://image.freepik.com/free-photo/blue-sky-with-clouds-background_1253-1477.jpg);
+}
+
+.navbar {
+  background-color: black;
+  text-decoration-color: white;
 }
