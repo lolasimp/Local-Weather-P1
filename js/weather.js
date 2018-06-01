@@ -1,12 +1,13 @@
+// const dom = require('./dom');
 
-let weatherKey = '';
+// let weatherKey = '';
 
-// setKey
-const setKeys = (key) => {
-  weatherKey = key;
-};
+// // setKey
+// const setKeys = (key) => {
+//   weatherKey = key;
+// };
 
-module.exports = {
-  setKeys,
-  weatherKey,
-};
+// module.exports = {
+//   setKeys,
+//   weatherKey,
+// };
