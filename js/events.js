@@ -29,9 +29,9 @@ const navLinks = () => {
 
 const initializer = () => {
   navLinks();
+  pressEnter();
 };
 
 module.exports = {
   initializer,
-  pressEnter,
 };
