@@ -23,6 +23,7 @@ const pressEnter = () => {
     if (e.key === 'Enter') {
       const searchWord = $('#searchBar').val();
       weather.showOneDay(searchWord);
+      weather.fiveDay(searchWord);
     }
   });
 };
