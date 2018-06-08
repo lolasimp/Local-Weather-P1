@@ -16,6 +16,7 @@ const retrieveKeys = () => {
   apiKeys()
     .then((results) => {
       weather.setKeys(results.weather.apiKeys);
+      // firebase.initializeApp();
     })
     .catch((err) => {
       console.error('no keys', err);

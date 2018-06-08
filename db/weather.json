@@ -1,0 +1,44 @@
+{
+  "weather": {
+    "weather0": {
+      "name": "Nashville",
+      "temp": "82.76",
+      "pressure" : "1012",
+      "speed": "6.73",
+      "description": "clear sky",
+      "isScarry": false
+    },
+    "weather1": {
+      "name": "Nashville",
+      "temp": "82.76",
+      "pressure" : "1012",
+      "speed": "6.73",
+      "description": "clear sky",
+      "isScarry": false
+    },
+    "weather2": {
+      "name": "Nashville",
+      "temp": "82.76",
+      "pressure" : "1012",
+      "speed": "6.73",
+      "description": "clear sky",
+      "isScarry": false
+    },
+    "weather3": {
+      "name": "Nashville",
+      "temp": "82.76",
+      "pressure" : "1012",
+      "speed": "6.73",
+      "description": "clear sky",
+      "isScarry": false
+    },
+    "weather4": {
+      "name": "Nashville",
+      "temp": "82.76",
+      "pressure" : "1012",
+      "speed": "6.73",
+      "description": "clear sky",
+      "isScarry": false
+    }
+  }
+}

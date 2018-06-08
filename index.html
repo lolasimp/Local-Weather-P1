@@ -31,13 +31,17 @@
             <a id="threeDay">3 Day Forecast</a>
           </li>
           <li>
-            <a id="fiveDay">5 day Forecast</a>
+            <a id="fiveDay">5 Day Forecast</a>
+          </li>
+          <li>
+            <a id="current">Current Weather</a>
           </li>
           <li>
             <a id="navSearch">Search</a>
           </li>
         </ul>
       </div>
+
       <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
@@ -46,24 +50,27 @@
 <div class="hide" id="weekForecast">
   <h1>5 Day Forcast</h1>
 </div>
-
 <div class="hide" id="threeADay">
   <h1>3 Day Forecast</h1>
 </div>
+<div class="hide" id="days">
+  <h1>Hello</h1>
+</div>
 <div id="search">
-  <h1 class="text-center">Search Zip</h1>
+  <h1 class="text-center">Search Weather</h1>
   <div class="input-group col-sm-6 col-sm-offset-3">
       <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
       <input id="searchBar" type="text" class="form-control" placeholder="Search..." aria-describedby="basic-addon1">
     </div>
-
-    <div id="movies"></div>
   </div>
+
+  <div id="searchOne"></div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <script src="./dist/app.js"></script>
 </body>
 </html>
