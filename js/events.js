@@ -1,22 +1,4 @@
 const weather = require('./weather');
-// const dom = require('./dom');
-
-// const zipEntered = () => {
-//   const zipInput = $('#searchBar').val();
-//   if (zipInput.length === 5 && $.isNumeric(zipInput)) {
-//     weather.getWeather(zipInput)
-//       .then((results) => {
-//         dom.todayWeather(results);
-//         $('#day').html('');
-//        showOneDay()
-//       })
-//       .catch((err) => {
-//         console.error('err', err);
-//       });
-//   } else {
-//     alert('Will only accept 5 digits!!');
-//   }
-// };
 
 const pressEnter = () => {
   $(document).keypress((e) => {

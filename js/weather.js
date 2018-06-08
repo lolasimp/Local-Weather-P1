@@ -1,12 +1,10 @@
 const dom = require('./dom');
 
 let weatherKey = '';
-// let imageConfig = '';
 
 // setKey
 const setKeys = (key) => {
   weatherKey = key;
-  // getWeather();
 };
 
 const getWeather = (zip) => {

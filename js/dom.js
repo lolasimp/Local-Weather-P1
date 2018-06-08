@@ -19,10 +19,6 @@ const fiveDayForecast = (weatherArray) => {
   printToDom('#weekForecast', strang);
 };
 
-// const threeDayForcast = () => {
-
-// };
-
 const weatherString = (weather) => {
   let string = '';
   string += `<div class="text-center">`;
@@ -44,6 +40,5 @@ const printToDom = (id, string) => {
 
 module.exports = {
   fiveDayForecast,
-  // threeDayForcast,
   weatherString,
 };
