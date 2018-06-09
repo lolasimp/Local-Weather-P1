@@ -57,6 +57,4 @@ module.exports = {
   showOneDay,
   fiveDay,
   setKeys,
-  getWeather,
-  getWeek,
 };

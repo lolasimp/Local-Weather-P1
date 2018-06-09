@@ -1,4 +1,5 @@
 const weather = require('./weather');
+const firebaseApi = require('./firebaseApi');
 
 const apiKeys = () => {
   return new Promise((resolve, reject) => {
@@ -16,7 +17,8 @@ const retrieveKeys = () => {
   apiKeys()
     .then((results) => {
       weather.setKeys(results.weather.apiKeys);
-      // firebase.initializeApp();
+      firebase.initializeApp(results.firebase);
+      firebaseApi.setConfig(results.firebase);
     })
     .catch((err) => {
       console.error('no keys', err);

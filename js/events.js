@@ -1,4 +1,6 @@
 const weather = require('./weather');
+const firebaseApi = require('./firebaseApi');
+// const dom = require('./dom');
 
 const pressEnter = () => {
   $(document).keypress((e) => {
@@ -36,9 +38,31 @@ const navLinks = () => {
   });
 };
 
+const savedForecaseEvent = () => {
+  $(document).on('click', '.saveBtn', (e) => {
+    const weatherToSaveCard = $(e.target).closest('.weather');
+    const weatherToSave = {
+      city: weatherToSaveCard.find('.weather-dayName').text(),
+      temperature: weatherToSaveCard.find('.weather-temp').text(),
+      pressure: weatherToSaveCard.find('.weather-pressure').text(),
+      speed: weatherToSaveCard.find('.weather-speed').text(),
+      description: weatherToSaveCard.find('.weather-description').text(),
+      isScary: false,
+    };
+    firebaseApi.saveWeatherForecast(weatherToSave)
+      .then(() => {
+        weatherToSaveCard.remove();
+      })
+      .catch((error) => {
+        console.error('error save not working', error);
+      });
+  });
+};
+
 const initializer = () => {
   navLinks();
   pressEnter();
+  savedForecaseEvent();
 
 };
 

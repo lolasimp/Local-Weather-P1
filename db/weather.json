@@ -6,7 +6,7 @@
       "pressure" : "1012",
       "speed": "6.73",
       "description": "clear sky",
-      "isScarry": false
+      "isScary": false
     },
     "weather1": {
       "name": "Nashville",
@@ -14,7 +14,7 @@
       "pressure" : "1012",
       "speed": "6.73",
       "description": "clear sky",
-      "isScarry": false
+      "isScary": false
     },
     "weather2": {
       "name": "Nashville",
@@ -22,7 +22,7 @@
       "pressure" : "1012",
       "speed": "6.73",
       "description": "clear sky",
-      "isScarry": false
+      "isScary": false
     },
     "weather3": {
       "name": "Nashville",
@@ -30,7 +30,7 @@
       "pressure" : "1012",
       "speed": "6.73",
       "description": "clear sky",
-      "isScarry": false
+      "isScary": false
     },
     "weather4": {
       "name": "Nashville",
@@ -38,7 +38,7 @@
       "pressure" : "1012",
       "speed": "6.73",
       "description": "clear sky",
-      "isScarry": false
+      "isScary": false
     }
   }
 }
