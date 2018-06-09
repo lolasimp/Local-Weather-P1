@@ -20,7 +20,30 @@ const saveWeatherForecast = (bestWeather) => {
   });
 };
 
+const getAllWeather = () => {
+  return new Promise((resolve, reject) => {
+    const allWeatherArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.databaseURL}/weather.json`,
+    })
+      .done((allWeatherObj) => {
+        if (allWeatherObj !== null) {
+          Object.keys(allWeatherObj).forEach((uniqueKey) => {
+            allWeatherObj[uniqueKey].id = uniqueKey;
+            allWeatherArray.push(allWeatherObj[uniqueKey]);
+          });
+        }
+        resolve(allWeatherArray);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   setConfig,
   saveWeatherForecast,
+  getAllWeather,
 };

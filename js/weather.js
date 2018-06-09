@@ -34,7 +34,7 @@ const getWeek = (zip) => {
 const showOneDay = (oneDay) => {
   getWeather(oneDay)
     .then((results) => {
-      dom.weatherString(results);
+      dom.weatherString(results, 'days');
     })
     .catch((error) => {
       console.error('search error', error);
