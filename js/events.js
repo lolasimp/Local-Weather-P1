@@ -1,6 +1,7 @@
 const weather = require('./weather');
 const firebaseApi = require('./firebaseApi');
-// const { } = require('./firebaseApi');
+const dom = require('./dom');
+const {getAllWeather,} = require('./firebaseApi');
 
 const pressEnter = () => {
   $(document).keypress((e) => {
@@ -14,31 +15,37 @@ const pressEnter = () => {
 
 const navLinks = () => {
   $(document).click((e) => {
-    if (e.target.id === 'threeDay') {
+    if (e.target.id === 'allSaves') {
       $('#savedDays').removeClass('hide');
       $('#weekForecast').addClass('hide');
       $('#search').addClass('hide');
       $('#days').addClass('hide');
+      $('#authScreen').addClass('hide');
+      showSaved();
     } else if (e.target.id === 'fiveDay') {
       $('#weekForecast').removeClass('hide');
       $('#savedDays').addClass('hide');
       $('#search').addClass('hide');
       $('#days').addClass('hide');
+      $('#authScreen').addClass('hide');
     } else if (e.target.id === 'navSearch') {
       $('#weekForecast').addClass('hide');
       $('#savedDays').addClass('hide');
       $('#search').removeClass('hide');
       $('#days').addClass('hide');
+      $('#authScreen').addClass('hide');
     } else if (e.target.id === 'current') {
       $('#weekForecast').addClass('hide');
       $('#savedDays').addClass('hide');
       $('#search').addClass('hide');
       $('#days').removeClass('hide');
+      $('#authScreen').addClass('hide');
     } else if (e.target.id === 'allSaves') {
       $('#weekForecast').addClass('hide');
       $('#savedDays').removeClass('hide');
       $('#search').addClass('hide');
       $('#days').addClass('hide');
+      $('#authScreen').addClass('hide');
     }
   });
 };
@@ -56,7 +63,8 @@ const savedForecaseEvent = () => {
     };
     firebaseApi.saveWeatherForecast(weatherToSave)
       .then(() => {
-        weatherToSaveCard.remove();
+        showSaved();
+        // weatherToSaveCard.remove();
       })
       .catch((error) => {
         console.error('error save not working', error);
@@ -64,31 +72,32 @@ const savedForecaseEvent = () => {
   });
 };
 
-// const showSaved = () => {
-//   getAllWeather()
-//     .then((results) => {
-//       dom.XXX(results, 'savedList');
-//       $('#savedDays').removeClass('hide');
-//       $('#weekForecast').addClass('hide');
-//       $('#search').addClass('hide');
-//       $('#days').addClass('hide');
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// };
+const showSaved = () => {
+  getAllWeather()
+    .then((newArray) => {
+      dom.savedDays(newArray);
+      $('#savedDays').removeClass('hide');
+      $('#weekForecast').addClass('hide');
+      $('#search').addClass('hide');
+      $('#days').addClass('hide');
+      $('#authScreen').addClass('hide');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
-// const showSavedEvent = () => {
-//   $().click(() => {
-//     showSaved();
-//   });
-// };
+const showSavedEvent = () => {
+  $('#allSaves').click(() => {
+    savedForecaseEvent();
+  });
+};
 
 const initializer = () => {
   navLinks();
   pressEnter();
-  savedForecaseEvent();
-
+  // savedForecaseEvent();
+  showSavedEvent();
 };
 
 module.exports = {
