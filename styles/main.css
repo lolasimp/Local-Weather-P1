@@ -6,3 +6,9 @@ body {
   background-color: black;
   text-decoration-color: white;
 }
+
+.scary {
+  font-weight: bold;
+  background-color: red;
+  color: white;
+}

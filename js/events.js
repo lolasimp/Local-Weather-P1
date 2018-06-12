@@ -1,7 +1,7 @@
 const weather = require('./weather');
-const firebaseApi = require('./firebaseApi');
+// const firebaseApi = require('./firebaseApi');
 const dom = require('./dom');
-const {getAllWeather,} = require('./firebaseApi');
+const { getAllWeather, saveWeatherForecast, deleteSavedWeather, weatherScary,} = require('./firebaseApi');
 
 const pressEnter = () => {
   $(document).keypress((e) => {
@@ -61,14 +61,7 @@ const savedForecaseEvent = () => {
       description: weatherToSaveCard.find('.weather-description').text(),
       isScary: false,
     };
-    firebaseApi.saveWeatherForecast(weatherToSave)
-      .then(() => {
-        showSaved();
-        // weatherToSaveCard.remove();
-      })
-      .catch((error) => {
-        console.error('error save not working', error);
-      });
+    saveWeatherForecast(weatherToSave);
   });
 };
 
@@ -93,11 +86,47 @@ const showSavedEvent = () => {
   });
 };
 
+const deleteWeatherEvent = () => {
+  $(document).on('click', '.deleteBtn', (e) => {
+    const weatherToRemove = $(e.target).closest('.weather').data('firebaseId');
+    deleteSavedWeather(weatherToRemove)
+      .then(() => {
+        showSaved();
+      })
+      .catch((error) => {
+        console.error('error delete not working', error);
+      });
+  });
+};
+
+const scaryEvent = () => {
+  $(document).on('click', '.scaryBtn', (e) => {
+    const findScaryId = $(e.target).closest('.weather').data('firebaseId');
+    const scaryCard = $(e.target).closest('.weather');
+    const weatherToScary = {
+      city: scaryCard.find('.weather-dayName').text(),
+      temperature: scaryCard.find('.weather-temp').text(),
+      pressure: scaryCard.find('.weather-pressure').text(),
+      speed: scaryCard.find('.weather-speed').text(),
+      description: scaryCard.find('.weather-description').text(),
+      isScary: true,
+    };
+    weatherScary(weatherToScary, findScaryId)
+      .then(() => {
+        showSaved();
+      })
+      .catch((error) => {
+        console.error('error not showing scary', error);
+      });
+  });
+};
+
 const initializer = () => {
   navLinks();
   pressEnter();
-  // savedForecaseEvent();
   showSavedEvent();
+  deleteWeatherEvent();
+  scaryEvent();
 };
 
 module.exports = {
