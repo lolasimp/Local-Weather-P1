@@ -31,13 +31,18 @@ const getAllWeather = () => {
     const allWeatherArray = [];
     $.ajax({
       method: 'GET',
-      url: `${firebaseConfig.databaseURL}/weather.json`,
+      // url: `${firebaseConfig.databaseURL}/weather.json`,
+      url: `${firebaseConfig.databaseURL}/weather.json?orderBy="uid"&equalTo="${uid}"`,
     })
       .done((allWeatherObj) => {
         if (allWeatherObj !== null) {
           Object.keys(allWeatherObj).forEach((uniqueKey) => {
-            allWeatherObj[uniqueKey].id = uniqueKey;
-            allWeatherArray.push(allWeatherObj[uniqueKey]);
+            if (allWeatherObj[uniqueKey].isScary) {
+              allWeatherObj[uniqueKey].id = uniqueKey;
+              allWeatherArray.push(allWeatherObj[uniqueKey]);
+            }
+            // allWeatherObj[uniqueKey].id = uniqueKey;
+            // allWeatherArray.push(allWeatherObj[uniqueKey]);
           });
         }
         resolve(allWeatherArray);

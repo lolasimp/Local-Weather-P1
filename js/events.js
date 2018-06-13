@@ -1,7 +1,7 @@
 const weather = require('./weather');
 // const firebaseApi = require('./firebaseApi');
 const dom = require('./dom');
-const { getAllWeather, saveWeatherForecast, deleteSavedWeather, weatherScary,} = require('./firebaseApi');
+const { getAllWeather, saveWeatherForecast, deleteSavedWeather, weatherScary, } = require('./firebaseApi');
 
 const pressEnter = () => {
   $(document).keypress((e) => {
@@ -32,7 +32,7 @@ const navLinks = () => {
       $('#weekForecast').addClass('hide');
       $('#savedDays').addClass('hide');
       $('#search').removeClass('hide');
-      $('#days').addClass('hide');
+      $('#days').removeClass('hide');
       $('#authScreen').addClass('hide');
     } else if (e.target.id === 'current') {
       $('#weekForecast').addClass('hide');
@@ -121,14 +121,66 @@ const scaryEvent = () => {
   });
 };
 
+const authEvent = () => {
+  $('#signin-btn').click((e) => {
+    e.preventDefault();
+    const email = $('#inputEmail').val();
+    const pass = $('#inputPassword').val();
+    firebase.auth().signInWithEmailAndPassword(email, pass)
+      // .then((user) => {
+      //   $('#weekForecast').addClass('hide');
+      //   $('#savedDays').addClass('hide');
+      //   $('#search').addClass('hide');
+      //   $('#days').removeClass('hide');
+      //   $('#authScreen').addClass('hide');
+      //   getAllWeather();
+      // })
+      .catch((error) => {
+        $('#signin-error-msg').text(error.message);
+        $('#signin-error').removeClass('hide');
+        console.error(error.message);
+      });
+  });
+
+  $('#register-btn').click(() => {
+    const email = $('#registerEmail').val();
+    const pass = $('registerPassword').val();
+    firebase.auth().createWithEmailAndPassword(email, pass)
+      .catch((error) => {
+        $('#register-error-msg').text(error.message);
+        $('#register-error').removeClass('hide');
+        console.error(error.message);
+      });
+  });
+
+  $('#register-link').click(() => {
+    $('#login-form').addClass('hide');
+    $('#registration-form').removeClass('hide');
+  });
+
+  $('#signin-link').click(() => {
+    $('#login-form').removeClass('hide');
+    $('#registration-form').addClass('hide');
+  });
+
+  $('#logout').click(() => {
+    firebase.auth().signOut().then(() => {
+    }).catch((error) => {
+      console.error(error);
+    });
+  });
+};
+
 const initializer = () => {
   navLinks();
   pressEnter();
   showSavedEvent();
   deleteWeatherEvent();
   scaryEvent();
+  authEvent();
 };
 
 module.exports = {
   initializer,
+  getAllWeather,
 };
