@@ -1,5 +1,4 @@
 const weather = require('./weather');
-// const firebaseApi = require('./firebaseApi');
 const dom = require('./dom');
 const { getAllWeather, saveWeatherForecast, deleteSavedWeather, weatherScary, } = require('./firebaseApi');
 
@@ -81,7 +80,7 @@ const showSaved = () => {
 };
 
 const showSavedEvent = () => {
-  $('#allSaves').click(() => {
+  $('#savedDays').click(() => {
     savedForecaseEvent();
   });
 };

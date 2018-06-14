@@ -1,4 +1,4 @@
-const { getAllWeather, savedForecaseEvent, } = require('./events');
+const { getAllWeather,} = require('./events');
 const {setUID,} = require('./firebaseApi');
 
 const checkLoginStatus = () => {
@@ -12,7 +12,7 @@ const checkLoginStatus = () => {
       $('#auth-link').addClass('hide');
       $('#authenticate, #authScreen').addClass('hide');
       getAllWeather();
-      savedForecaseEvent();
+      // savedForecaseEvent();
     } else {
       $('#allSaves').addClass('hide');
       $('#fiveDay').addClass('hide');
