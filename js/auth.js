@@ -1,22 +1,25 @@
-const { getAllWeather, } = require('./events');
+const { getAllWeather, savedForecaseEvent, } = require('./events');
 const {setUID,} = require('./firebaseApi');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       setUID(user.uid);
-      $('#savedDays').addClass('hide');
-      $('#weekForecast').addClass('hide');
+      $('#allSaves').removeClass('hide');
+      $('#fiveDay').removeClass('hide');
       $('#search').removeClass('hide');
-      $('#days').addClass('hide');
-      $('#authScreen').addClass('hide');
+      $('#days, #current, #logout, #navSearch').removeClass('hide');
+      $('#auth-link').addClass('hide');
+      $('#authenticate, #authScreen').addClass('hide');
       getAllWeather();
+      savedForecaseEvent();
     } else {
-      $('#savedDays').addClass('hide');
-      $('#weekForecast').addClass('hide');
+      $('#allSaves').addClass('hide');
+      $('#fiveDay').addClass('hide');
       $('#search').addClass('hide');
-      $('#days, #logout, #navSearch').addClass('hide');
-      $('#authScreen').removeClass('hide');
+      $('#days, #logout, #current').addClass('hide');
+      $('#authlink').removeClass('hide');
+      $('#authenticate, #authScreen').removeClass('hide');
     }
   });
 };

@@ -18,8 +18,8 @@ const apiKeys = () => {
 const retrieveKeys = () => {
   apiKeys().then((results) => {
     weather.setKeys(results.weather.apiKeys);
-    firebase.initializeApp(results.firebase);
     firebaseApi.setConfig(results.firebase);
+    firebase.initializeApp(results.firebase);
     firebase
       .auth()
       .signInWithEmailAndPassword('lolalsimp@gmail.com', '123456')
