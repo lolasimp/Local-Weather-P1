@@ -37,10 +37,10 @@ const getAllWeather = () => {
       .done((allWeatherObj) => {
         if (allWeatherObj !== null) {
           Object.keys(allWeatherObj).forEach((uniqueKey) => {
-            if (allWeatherObj[uniqueKey].isScary) {
-              allWeatherObj[uniqueKey].id = uniqueKey;
-              allWeatherArray.push(allWeatherObj[uniqueKey]);
-            }
+            // if (allWeatherObj[uniqueKey].isScary) {
+            allWeatherObj[uniqueKey].id = uniqueKey;
+            allWeatherArray.push(allWeatherObj[uniqueKey]);
+            // }
             // allWeatherObj[uniqueKey].id = uniqueKey;
             // allWeatherArray.push(allWeatherObj[uniqueKey]);
           });

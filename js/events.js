@@ -45,6 +45,12 @@ const navLinks = () => {
       $('#search').addClass('hide');
       $('#days').addClass('hide');
       $('#authScreen').addClass('hide');
+    } else if (e.target.id === 'logout') {
+      $('#weekForecast').addClass('hide');
+      $('#savedDays').addClass('hide');
+      $('#search').addClass('hide');
+      $('#days').addClass('hide');
+      $('#authScreen').removeClass('hide');
     }
   });
 };
@@ -173,6 +179,7 @@ const authEvent = () => {
 const initializer = () => {
   navLinks();
   pressEnter();
+  savedForecaseEvent();
   showSavedEvent();
   deleteWeatherEvent();
   scaryEvent();
