@@ -12,7 +12,6 @@ const checkLoginStatus = () => {
       $('#auth-link').addClass('hide');
       $('#authenticate, #authScreen').addClass('hide');
       getAllWeather();
-      // savedForecaseEvent();
     } else {
       $('#allSaves').addClass('hide');
       $('#fiveDay').addClass('hide');

@@ -56,8 +56,6 @@ const savedDays = (weatherArray) => {
     savedString += `</div>`;
     savedString += `</div>`;
   });
-  // savedString += `</div>`;
-  // savedString += `</div>`;
   printToDom('#savedDays', savedString);
 };
 

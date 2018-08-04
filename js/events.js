@@ -132,14 +132,6 @@ const authEvent = () => {
     const email = $('#inputEmail').val();
     const pass = $('#inputPassword').val();
     firebase.auth().signInWithEmailAndPassword(email, pass)
-      // .then((user) => {
-      //   $('#weekForecast').addClass('hide');
-      //   $('#savedDays').addClass('hide');
-      //   $('#search').addClass('hide');
-      //   $('#days').removeClass('hide');
-      //   $('#authScreen').addClass('hide');
-      //   getAllWeather();
-      // })
       .catch((error) => {
         $('#signin-error-msg').text(error.message);
         $('#signin-error').removeClass('hide');
